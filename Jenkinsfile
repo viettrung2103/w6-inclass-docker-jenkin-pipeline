@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-repo.git'
+               git branch:'master', url: 'https://github.com/viettrung2103/w6-inclass-docker-jenkin-pipeline.git'
             }
         }
         stage('Build') {
