@@ -9,8 +9,8 @@ class UserTest {
     static AppInterface appInterface;
     static User user;
 
-    @BeforeAll
-    static void setup() {
+    @BeforeEach
+    void setup() {
 
 //        appInterface = new AppInterface(user);
 //        User user = new User();
@@ -40,6 +40,17 @@ class UserTest {
         assertFalse(user.checkEligibility());
 
         user.addSession("2024-08-01", 90);
+        assertTrue(user.checkEligibility());
+    }
+
+    @Test
+    @DisplayName("test user eligibility after adding 100 session")
+    void checkEligilityAfter100Sessions() {
+        for (int i = 1; i <= 100; i++) {
+//            user.addSession();
+//            String day = String.format("%02d", i % 30 + 1); // Ensure day is always valid and formatted correctly
+            user.addSession("2024-02-02" , 90);
+        }
         assertTrue(user.checkEligibility());
     }
 
